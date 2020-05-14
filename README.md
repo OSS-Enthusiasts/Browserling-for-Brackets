@@ -1,2 +1,2 @@
 # Browserling-for-Brackets
-One-stop Web Developer Tools collection for Brackets
+One-stop Developers Tools collection for Brackets. Web, hashing, maths, random generators...
