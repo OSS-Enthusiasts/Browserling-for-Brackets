@@ -1,0 +1,35 @@
+{
+  "name": "browserling-for-brackets",
+  "version": "1.0.0",
+  "description": "A developers-oriented toolset for many purposes (web, crypto, generators...)",
+  "main": "main.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/preset-env": "^7.9.6",
+    "@babel/register": "^7.9.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "jasmine": "^3.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OSS-Enthusiasts/Browserling-for-Brackets.git"
+  },
+  "keywords": [
+    "toolset",
+    "crypto",
+    "web",
+    "maths",
+    "generators"
+  ],
+  "author": "OSSEnthusiasts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OSS-Enthusiasts/Browserling-for-Brackets/issues"
+  },
+  "homepage": "https://github.com/OSS-Enthusiasts/Browserling-for-Brackets#readme"
+}
