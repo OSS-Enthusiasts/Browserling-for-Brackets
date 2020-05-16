@@ -1,3 +1,5 @@
+// eslint-disable-next-line no-unused-vars
+/* global $, brackets */
 
 /**
 *  File: morsecode.js
@@ -16,12 +18,12 @@ define((require, exports) => {
     let undefinedCount = 0;
     const txt = text.trim().toUpperCase().split('');
     let code = '';
-    for (let i = 0; i < txt.length; i++) {
-      if (symbols[letters.indexOf(txt[i])] != undefined) {
+    for (let i = 0; i < txt.length; i + 1) {
+      if (symbols[letters.indexOf(txt[i])] !== undefined) {
         code += `${symbols[letters.indexOf(txt[i])]} `;
-        continue;
+      } else {
+        undefinedCount += 1;
       }
-      undefinedCount++;
     }
     if (undefinedCount > 0) {
       Dialogs.showModalDialog('', 'Unsupported Characters', 'Some unsupported characters were found skipped in the process');
@@ -34,7 +36,7 @@ define((require, exports) => {
     const code = morseCode.trim().replace(/_|¯|—|–/g, '-').split(' ');
     let txt = '';
 
-    for (let i = 0; i < code.length; i++) {
+    for (let i = 0; i < code.length; i + 1) {
       txt += letters[symbols.indexOf(code[i])];
     }
     decResult = txt.replace('undefined', '');
