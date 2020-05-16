@@ -31,9 +31,8 @@ define((require, exports, module) => {
   function wta() {
     // AirBnB standard does will throw errors when you leave console.log
     // console.log('Executing Command WTA');
-	
-	
-	  
+
+
   }
 
   CommandManager.register(wtaName, wtaId, wta);
