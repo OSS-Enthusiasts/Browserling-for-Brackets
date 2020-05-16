@@ -1,3 +1,8 @@
 language: node_js
 node_js:
   - 7
+intall:
+  - eslint --fix ./src/*
+  - ./node_modules/.bin/babel -d .
+  - ./node_modules/jasmine ./src/ --random=false
+  - npm install
