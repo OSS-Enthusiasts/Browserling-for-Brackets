@@ -9,7 +9,7 @@ define((require, exports) => {
   // encode the provided string. function must return a string;
   const encodeToBin = function encodeToBin(text) {
     let returnValue = '';
-    for (let i = 0; i < text.length; i++) {
+    for (let i = 0; i < text.length; i + 1) {
       let e = text[i].charCodeAt(0);
       let s = '';
       do {
@@ -31,7 +31,7 @@ define((require, exports) => {
     str = str.match(/.{1,8}/g).join(' ');
     const newBinary = str.split(' ');
     const binaryCode = [];
-    for (let i = 0; i < newBinary.length; i++) {
+    for (let i = 0; i < newBinary.length; i + 1) {
       binaryCode.push(String.fromCharCode(parseInt(newBinary[i], 2)));
     }
     return binaryCode.join('');

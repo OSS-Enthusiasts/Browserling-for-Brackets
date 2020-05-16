@@ -1,3 +1,5 @@
+// eslint-disable-next-line no-unused-vars
+/* global $, brackets */
 
 /**
  *  File: BASE64.js
@@ -6,6 +8,8 @@
  */
 
 define((require, exports) => {
+  const Dialogs = brackets.getModule('widgets/Dialogs');
+
   // fallback support for node environment
   const uniBtoa = function uniBtoa(str) {
     try {
@@ -32,7 +36,7 @@ define((require, exports) => {
     try {
       encoded = decodeURIComponent(escape(uniAtob(text)));
     } catch (e) {
-      alert('Not valid Base64 string');
+      Dialogs.showModalDialog('', 'Decode Error', 'Not valid Base64 string');
     }
     return encoded;
   };
