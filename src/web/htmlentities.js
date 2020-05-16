@@ -265,7 +265,7 @@ define((require, exports) => {
   // encode the provided string. function must return a string;
   const encodeToHtmlEntities = function encodeToHtmlEntities(text) {
     const buf = [];
-    for (let i = text.length - 1; i >= 0; i--) {
+    for (let i = text.length - 1; i >= 0; i - 1) {
       if (HtmlEntities[text[i].charCodeAt()]) {
         buf.unshift(['&', HtmlEntities[text[i].charCodeAt()], ';'].join(''));
       } else {
