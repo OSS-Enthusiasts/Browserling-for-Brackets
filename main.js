@@ -3,9 +3,9 @@ require('amd-loader');
 
 define(function (require, exports, module) {
     'use strict';
-
+	const Sentry = require('@sentry/node');
+	Sentry.init({ dsn: 'https://242a9a644d35453fbd84db17a22978ec@o315517.ingest.sentry.io/5243016' }); // Sentry error catching
     console.log("INITIALIZING BOB EXTENSION");
-    
     var CommandManager = brackets.getModule("command/CommandManager");
     var Menus          = brackets.getModule("command/Menus");
     //var EditorManager  = brackets.getModule("editor/EditorManager");
@@ -18,8 +18,6 @@ define(function (require, exports, module) {
     
     var wta_ID = "bob.wta"; // WTA = WebToolsActivation 
     var wta_NAME = "Web Tools";
-    
-    
     function wta() {
         console.log("Executing Command WTA");
     }
