@@ -1,3 +1,4 @@
+'use strict';
 
 /* eslint-disable new-cap */
 /**
@@ -7,11 +8,11 @@
  *
  */
 
-define((require, exports) => {
-  const encodeToASCII = function encodeToASCII(text) {
-    const asciiArray = [];
-    const txt = text.trim().split('');
-    for (let i = 0; i < txt.length; i + 1) {
+define(function (require, exports) {
+  var encodeToASCII = function encodeToASCII(text) {
+    var asciiArray = [];
+    var txt = text.trim().split('');
+    for (var i = 0; i < txt.length; i + 1) {
       try {
         asciiArray.push(i.charCodeAt(0));
       } catch (e) {
@@ -23,8 +24,7 @@ define((require, exports) => {
     let _iteratorNormalCompletion = true;
     let _didIteratorError = false;
     let _iteratorError;
-
-    try {
+     try {
       for (var _iterator = Array.from(text)[Symbol.iterator](), _step;
        !(_iteratorNormalCompletion = (_step = _iterator.next()).done);
         _iteratorNormalCompletion = true) {
@@ -50,15 +50,15 @@ define((require, exports) => {
     return asciiArray.join('');
   };
 
-  const decodeFromASCII = function decodeFromASCII(text) {
-    const codes = [];
-    for (let i = 0; i < text.length;) {
-      const numDigits = text[i] === '1' ? 3 : 2;
+  var decodeFromASCII = function decodeFromASCII(text) {
+    var codes = [];
+    for (var i = 0; i < text.length;) {
+      var numDigits = text[i] === '1' ? 3 : 2;
       codes.push(text.substr(i, numDigits));
       i += numDigits;
     }
 
-    return String.fromCharCode(...codes);
+    return String.fromCharCode.apply(String, codes);
   };
   exports.encodeToASCII = encodeToASCII;
   exports.decodeFromASCII = decodeFromASCII;
