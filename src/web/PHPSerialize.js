@@ -17,9 +17,9 @@ define((require, exports) => {
 
   // To check the format of the input, whether it complies with the above mentioned format
   const checkformat = function checkformat(input, format) {
-    if ((input.match(/:/g) || []).length == 2 && input[0] == 's' && format == 's') {
+    if ((input.match(/:/g) || []).length === 2 && input[0] === 's' && format === 's') {
       return true;
-    } if ((input.match(/:/g) || []).length == 1 && input[0] == format) {
+    } if ((input.match(/:/g) || []).length === 1 && input[0] === format) {
       return true;
     }
     return false;
@@ -27,38 +27,41 @@ define((require, exports) => {
 
   //    PHP Serializing string
   const encodeToPHPSerial = function encodeToPHPSerial(input) {
-    const encode = `s:${input.length.toString()}:\"${input}\"`;
+    const encode = `s:${input.length.toString()}:"${input}"`;
     return encode;
   };
 
   //    PHP Serializing integer
   const encodeIntToPHPSerial = function encodeIntToPHPSerial(input) {
-    if (parseInt(input) == input) {
+    if (parseInt(input, 10) === input) {
       const encode = `i:${input}`;
       return encode;
     }
+    return null;
   };
   // PHP Serializing float
   const encodeFloatToPHPSerial = function encodeFloatToPHPSerial(input) {
-    if (parseFloat(input) == input) {
+    if (parseFloat(input) === input) {
       const encode = `d:${input}`;
       return encode;
     }
+    return null;
   };
   //    Decoding PHP serial to String/Int
   const decodeFromPHPSerial = function decodeFromPHPSerial(input) {
     if (checkformat(input, 's')) {
       const decode = input.split(':');
-      const getDecodedString = decode[2].split('\"');
+      const getDecodedString = decode[2].split('"');
       return getDecodedString[1];
     } if (checkformat(input, 'i')) {
-      const _decode = input.split(':');
-      return _decode[1];
+      const decode = input.split(':');
+      return decode[1];
     } if (checkformat(input, 'd')) {
-      const _decode2 = input.split(':');
-      return _decode2[1];
+      const decode = input.split(':');
+      return decode[1];
     }
-    console.error('invalid PHPSerial format');
+    // console.error('invalid PHPSerial format');
+    return null;
   };
   exports.encodeToPHPSerial = encodeToPHPSerial;
   exports.encodeIntToPHPSerial = encodeIntToPHPSerial;
