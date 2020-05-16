@@ -26,7 +26,7 @@ define((require, exports) => {
     const array = text.trim().split('');
     const chunks = groupArrayInGroups(array, 2);
 
-    return chunks.map((charCode) => String.fromCharCode(parseInt(`0x${charCode}`).toString())).join('');
+    return chunks.map((charCode) => String.fromCharCode(parseInt(`0x${charCode}`, 10).toString())).join('');
   };
 
   exports.encodeToHex = encodeToHex;
