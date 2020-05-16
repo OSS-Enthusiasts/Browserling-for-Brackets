@@ -1,4 +1,3 @@
-'use strict';
 
 /**
  *  File: BASE64.js
@@ -6,16 +5,16 @@
  *  Description:  Encodes and decodes String <--> Base 64
  */
 
-define(function (require, exports) {
+define((require, exports) => {
   // fallback support for node environment
-  var uniBtoa = function uniBtoa(str) {
+  const uniBtoa = function uniBtoa(str) {
     try {
       return btoa(str);
     } catch (err) {
       return Buffer.from(str).toString('base64');
     }
   };
-  var uniAtob = function uniAtob(b64Encoded) {
+  const uniAtob = function uniAtob(b64Encoded) {
     try {
       return atob(b64Encoded);
     } catch (err) {
@@ -24,12 +23,12 @@ define(function (require, exports) {
   };
 
   // encode the provided string. function must return a string;
-  var encodeToBase64 = function encodeToBase64(text) {
+  const encodeToBase64 = function encodeToBase64(text) {
     return uniBtoa(unescape(encodeURIComponent(text)));
   };
   // decode the provided string. function must return a string;
-  var decodeFromBase64 = function decodeFromBase64(text) {
-    var encoded = null;
+  const decodeFromBase64 = function decodeFromBase64(text) {
+    let encoded = null;
     try {
       encoded = decodeURIComponent(escape(uniAtob(text)));
     } catch (e) {

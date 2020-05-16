@@ -1,4 +1,4 @@
-'use strict';
+
 /* eslint-disable new-cap */
 /**
  *  File: ASCII.js
@@ -7,17 +7,17 @@
  *
  */
 
-define(function (require, exports) {
-  var encodeToASCII = function encodeToASCII(text) {
-    var asciiArray = [];
+define((require, exports) => {
+  const encodeToASCII = function encodeToASCII(text) {
+    const asciiArray = [];
 
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
+    let _iteratorNormalCompletion = true;
+    let _didIteratorError = false;
+    let _iteratorError;
 
     try {
       for (var _iterator = Array.from(text)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-        var char = _step.value;
+        const char = _step.value;
 
         asciiArray.push(char.charCodeAt(0));
       }
@@ -39,10 +39,10 @@ define(function (require, exports) {
     return asciiArray.join('');
   };
 
-  var decodeFromASCII = function decodeFromASCII(text) {
-    var codes = [];
-    for (var i = 0; i < text.length;) {
-      var numDigits = text[i] === '1' ? 3 : 2;
+  const decodeFromASCII = function decodeFromASCII(text) {
+    const codes = [];
+    for (let i = 0; i < text.length;) {
+      const numDigits = text[i] === '1' ? 3 : 2;
       codes.push(text.substr(i, numDigits));
       i += numDigits;
     }

@@ -1,5 +1,4 @@
 /* eslint-disable func-names */
-/* eslint-disable prefer-arrow-callback */
 // eslint-disable-next-line max-len
 /* jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
 // eslint-disable-next-line no-unused-vars
@@ -13,7 +12,7 @@
  */
 
 // eslint-disable-next-line no-unused-vars
-define(function (require, exports, module) {
+define((require, exports, module) => {
   const Sentry = require('@sentry/node');
   Sentry.init({ dsn: 'https://242a9a644d35453fbd84db17a22978ec@o315517.ingest.sentry.io/5243016' }); // Sentry error catching
 
@@ -34,9 +33,7 @@ define(function (require, exports, module) {
     // console.log('Executing Command WTA');
   }
 
-
   CommandManager.register(wtaName, wtaId, wta);
-
   const menu = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
   menu.addMenuDivider();
   menu.addMenuItem(wtaId);

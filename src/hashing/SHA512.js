@@ -1,4 +1,4 @@
-'use strict';
+
 /* eslint-disable new-cap */
 /**
  *  File: SHA512.js
@@ -9,10 +9,10 @@
  *
  */
 
-define(function (require, exports) {
-  var crypto = require('crypto-js');
-  var encodeToSHA512 = function encodeToSHA512(text) {
-    var hash = crypto.SHA512(text).toString();
+define((require, exports) => {
+  const crypto = require('crypto-js');
+  const encodeToSHA512 = function encodeToSHA512(text) {
+    const hash = crypto.SHA512(text).toString();
     return hash;
   };
   exports.encodeToSHA512 = encodeToSHA512;

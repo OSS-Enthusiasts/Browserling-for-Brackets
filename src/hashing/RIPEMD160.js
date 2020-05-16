@@ -1,4 +1,4 @@
-'use strict';
+
 /* eslint-disable new-cap */
 /**
  *  File: RIPEMD160.js
@@ -9,10 +9,10 @@
  *
  */
 
-define(function (require, exports) {
-  var crypto = require('crypto-js');
-  var encodeToRIPEMD160 = function encodeToRIPEMD160(text) {
-    var hash = crypto.RIPEMD160(text).toString();
+define((require, exports) => {
+  const crypto = require('crypto-js');
+  const encodeToRIPEMD160 = function encodeToRIPEMD160(text) {
+    const hash = crypto.RIPEMD160(text).toString();
     return hash;
   };
   exports.encodeToRIPEMD160 = encodeToRIPEMD160;

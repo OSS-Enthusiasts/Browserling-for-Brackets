@@ -1,4 +1,3 @@
-'use strict';
 
 /**
  *  File: NL2BR.js
@@ -6,14 +5,14 @@
  *  Description:  Encodes and decodes New Line <--> BR
  */
 
-define(function (require, exports) {
+define((require, exports) => {
   // encode the provided string. function must return a string;
-  var encodeNlToBr = function encodeNlToBr(text) {
+  const encodeNlToBr = function encodeNlToBr(text) {
     return text.replace(/(?:\r\n|\r|\n)/g, '<br>');
   };
 
   // decode the provided string. function must return a string;
-  var decodeNlFromBr = function decodeNlFromBr(text) {
+  const decodeNlFromBr = function decodeNlFromBr(text) {
     return text.replace(/<br\s*\/?>/mg, '\n');
   };
 

@@ -1,4 +1,4 @@
-'use strict';
+
 /* eslint-disable new-cap */
 /**
  *  File: SHA256.js
@@ -9,10 +9,10 @@
  *
  */
 
-define(function (require, exports) {
-  var crypto = require('crypto-js');
-  var encodeToSHA256 = function encodeToSHA256(text) {
-    var hash = crypto.SHA256(text).toString();
+define((require, exports) => {
+  const crypto = require('crypto-js');
+  const encodeToSHA256 = function encodeToSHA256(text) {
+    const hash = crypto.SHA256(text).toString();
     return hash;
   };
   exports.encodeToSHA256 = encodeToSHA256;
