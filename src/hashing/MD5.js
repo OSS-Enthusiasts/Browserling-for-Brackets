@@ -1,4 +1,4 @@
-'use strict';
+
 /* eslint-disable new-cap */
 /**
  *  File: MD5.js
@@ -9,10 +9,10 @@
  *
  */
 
-define(function (require, exports) {
-  var crypto = require('crypto-js');
-  var encodeToMD5 = function encodeToMD5(text) {
-    var hash = crypto.MD5(text).toString();
+define((require, exports) => {
+  const crypto = require('crypto-js');
+  const encodeToMD5 = function encodeToMD5(text) {
+    const hash = crypto.MD5(text).toString();
     return hash;
   };
   exports.encodeToMD5 = encodeToMD5;

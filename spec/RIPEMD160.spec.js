@@ -5,10 +5,9 @@
 
 require('amd-loader');
 // for tests that need RequireJS
-define(function(require, exports, module) {
-  'use strict';
-  describe('src/RIPEMD160.js =>', ()=>{
-    const encodeToRIPEMD160 = require('../src/convertors/RIPEMD160').encodeToRIPEMD160;
+define((require, exports, module) => {
+  describe('src/RIPEMD160.js =>', () => {
+    const { encodeToRIPEMD160 } = require('../src/convertors/RIPEMD160');
     it('Should encode and decode pure text', () => {
       const clearText = 'javascript';
       // eslint-disable-next-line max-len
@@ -22,13 +21,13 @@ define(function(require, exports, module) {
       expect(encodeToRIPEMD160(clearText)) == encodedText;
     });
     describe('Encode/decode testing special characters =>', () => {
-      it('should encode and decode text with spaces', () =>{
+      it('should encode and decode text with spaces', () => {
         const clearText = 'I am an HTML developer.';
         // eslint-disable-next-line max-len
         const encodeText = 'b623aa45cd96afa80d6b9522e747330ff32e450e';
         expect(encodeToRIPEMD160(clearText)) == encodeText;
       });
-      it('Should encode and decode text with special characters', ()=>{
+      it('Should encode and decode text with special characters', () => {
         // NEED REVIEW
         const clearText = 'I am $ure buT I am tout à fait sure que c\'est un coup de Fantomas !'; // A very good french reference :p
         // eslint-disable-next-line max-len

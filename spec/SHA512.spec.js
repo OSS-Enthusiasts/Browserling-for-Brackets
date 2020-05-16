@@ -5,10 +5,9 @@
 
 require('amd-loader');
 // for tests that need RequireJS
-define(function(require, exports, module) {
-  'use strict';
-  describe('src/SHA512.js =>', ()=>{
-    const encodeToSHA512 = require('../src/convertors/SHA512').encodeToSHA512;
+define((require, exports, module) => {
+  describe('src/SHA512.js =>', () => {
+    const { encodeToSHA512 } = require('../src/convertors/SHA512');
     it('Should encode and decode pure text', () => {
       const clearText = 'javascript';
       // eslint-disable-next-line max-len
@@ -22,13 +21,13 @@ define(function(require, exports, module) {
       expect(encodeToSHA512(clearText)) == encodedText;
     });
     describe('Encode/decode testing special characters =>', () => {
-      it('should encode and decode text with spaces', () =>{
+      it('should encode and decode text with spaces', () => {
         const clearText = 'I am an HTML developer.';
         // eslint-disable-next-line max-len
         const encodeText = 'ed74592abf2983c44b403abf4cb508edcb65583f63552345b72937df59f3cc3e3e2b4f0d02025af896a3ed686a21f5aadf490a7e8bec15c698d6c976841e3255';
         expect(encodeToSHA512(clearText)) == encodeText;
       });
-      it('Should encode and decode text with special characters', ()=>{
+      it('Should encode and decode text with special characters', () => {
         // NEED REVIEW
         const clearText = "I am $ure buT I am tout à fait sure que c'est un coup de Fantomas !"; // A very good french reference :p
         // eslint-disable-next-line max-len
