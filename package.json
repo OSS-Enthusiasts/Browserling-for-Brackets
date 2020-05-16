@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "A developers-oriented toolset for many purposes (web, crypto, generators...)",
   "main": "main.js",
-  "dependencies": {},
+  "dependencies": {
+    "@sentry/node": "^5.15.5"
+  },
   "devDependencies": {
     "@babel/preset-env": "^7.9.6",
     "@babel/register": "^7.9.0",
+    "babel": "^6.23.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
@@ -16,7 +19,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lintfix": "./node_modules/.bin/eslint --fix ./src/main.js ./src/* ./spec/*.js",
     "zip": "npm run-script build && ./node_modules/.bin/bestzip encode-decode.zip lib/* convertors/* main.js requirejs-config.json package.json",
-    "build": "./node_modules/.bin/eslint ./src/* && ./node_modules/.bin/babel src -d ."  
+    "build": "./node_modules/.bin/eslint ./src/* && ./node_modules/.bin/babel src -d ."
   },
   "repository": {
     "type": "git",
