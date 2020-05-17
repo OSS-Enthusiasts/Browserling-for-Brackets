@@ -1,5 +1,3 @@
-
-/* eslint-disable new-cap */
 /**
  *  File: SHA1.js
  *  Author: Arthur Pons <unguestdev@gmail.com> aka unguest on github

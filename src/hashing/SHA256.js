@@ -1,5 +1,3 @@
-
-/* eslint-disable new-cap */
 /**
  *  File: SHA256.js
  *  Author: Shankhanil <shankha.rik@gmail.com>

@@ -6,6 +6,7 @@
   "dependencies": {
     "@babel/cli": "^7.8.4",
     "@sentry/node": "^5.15.5",
+    "amd-loader": "0.0.8",
     "crypto-js": "^4.0.0"
   },
   "devDependencies": {
@@ -14,10 +15,11 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jasmine": "^4.1.1",
     "jasmine": "^3.5.0"
   },
   "scripts": {
-    "test": "./node_modules/.bin/eslint ./src/main.js ./src/*  && ./node_modules/.bin/jasmine --random=false",
+    "test": "./node_modules/.bin/eslint ./src/main.js ./src/* ./spec/*.js && ./node_modules/.bin/jasmine --random=false",
     "lintfix": "./node_modules/.bin/eslint --fix ./src/main.js ./src/* ./spec/*.js",
     "zip": "npm run-script build && ./node_modules/.bin/bestzip b-o-b.zip lib/* convertors/* main.js requirejs-config.json package.json",
     "build": "./node_modules/.bin/eslint ./src/* && ./node_modules/.bin/babel --verbose src -d ."

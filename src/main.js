@@ -31,10 +31,12 @@ define((require, exports, module) => {
   function wta() {
     // AirBnB standard does will throw errors when you leave console.log
     // console.log('Executing Command WTA');
+
+
   }
 
   CommandManager.register(wtaName, wtaId, wta);
   const menu = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
   menu.addMenuDivider();
-  menu.addMenuItem(wtaId);
+  menu.addMenuItem(wtaName, wtaId, Menus.LAST);
 });

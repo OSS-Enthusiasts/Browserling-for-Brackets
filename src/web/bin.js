@@ -1,4 +1,3 @@
-
 /**
  *  File: BIN.js
  *  Author: Chif <nadchif@gmail.com>
