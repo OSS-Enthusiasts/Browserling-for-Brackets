@@ -2,7 +2,9 @@
     "env": {
         "browser": true,
         "commonjs": true,
-        "es6": true
+        "es6": true,
+        "amd": true,
+        "jasmine": true 
     },
     "extends": [
         "airbnb-base"
@@ -15,5 +17,6 @@
         "ecmaVersion": 11
     },
     "rules": {
+        "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["exports"] }]
     }
 }
