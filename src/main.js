@@ -24,19 +24,39 @@ define((require, exports, module) => {
   // var DocumentManager = brackets.getModule("document/DocumentManager");
   // var NativeApp = brackets.getModule("utils/NativeApp");
   // var Commands = brackets.getModule("command/Commands");
+	
+  const menu = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
+
 
 
   const WtaName = 'Web Tools'; // WTA = WebToolsActivation
   const WtaID = 'bob.Web_Tools';
+	
   function wta() {
     // AirBnB standard does will throw errors when you leave console.log
     // console.log('Executing Command WTA');
-
-
   }
+	
+  const HtaName = 'Hashing Tools'; // HTA = HashingToolsActivation
+  const HtaID = 'bob.Hashing_Tools';
+	
+  function hta() {
+    // AirBnB standard does will throw errors when you leave console.log
+    // console.log('Executing Command HTA');
+	
+	  var subMenu = Menus.getContextMenu(Menus.ContextMenuIds.EDITOR_MENU).removeSubMenu('NADCHIF_ECDC_MENU');
+	
+  }
+	
+  // Registering commands into Brackets itself
 
   CommandManager.register(WtaName, WtaID, wta);
-  const menu = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
-  menu.addMenuDivider();
+  CommandManager.register(HtaName, HtaID, hta);
+
+  menu.addMenuDivider(); // Show a trailing line to separate our menus from Brackets' ones
+
+  // Adding menu items
+
   menu.addMenuItem(WtaID, WtaName, Menus.LAST);
+  menu.addMenuItem(HtaID, HtaName, Menus.LAST);
 });
