@@ -13,8 +13,8 @@
 
 // eslint-disable-next-line no-unused-vars
 define((require, exports, module) => {
-  const Sentry = require('@sentry/node');
-  Sentry.init({ dsn: 'https://242a9a644d35453fbd84db17a22978ec@o315517.ingest.sentry.io/5243016' }); // Sentry error catching
+  //const Sentry = require('@sentry/node');
+  //Sentry.init({ dsn: 'https://242a9a644d35453fbd84db17a22978ec@o315517.ingest.sentry.io/5243016' }); // Sentry error catching
 
   const CommandManager = brackets.getModule('command/CommandManager');
   const Menus = brackets.getModule('command/Menus');
@@ -26,8 +26,8 @@ define((require, exports, module) => {
   // var Commands = brackets.getModule("command/Commands");
 
 
-  const wtaId = 'bob.wta'; // WTA = WebToolsActivation
-  const wtaName = 'Web Tools';
+  const WtaName = 'Web Tools'; // WTA = WebToolsActivation
+  const WtaID = 'bob.Web_Tools';
   function wta() {
     // AirBnB standard does will throw errors when you leave console.log
     // console.log('Executing Command WTA');
@@ -35,8 +35,8 @@ define((require, exports, module) => {
 
   }
 
-  CommandManager.register(wtaName, wtaId, wta);
+  CommandManager.register(WtaName, WtaID, wta);
   const menu = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
   menu.addMenuDivider();
-  menu.addMenuItem(wtaName, wtaId, Menus.LAST);
+  menu.addMenuItem(WtaID, WtaName, Menus.LAST);
 });
