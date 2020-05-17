@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+/convertors
+/main.js
+/web
+/hashing
+b-o-b
+b-o-b.zip
+*.bat

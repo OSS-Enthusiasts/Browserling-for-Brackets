@@ -1,13 +1,11 @@
-'use strict';
-
 /**
  *  File: URI.js
  *  Author: Chif <nadchif@gmail.com>
  *  Description:  Encodes and decodes String <--> HTML Entities
  */
 
-define(function (require, exports) {
-  var HtmlEntities = {
+define((require, exports) => {
+  const HtmlEntities = {
     34: 'quot',
     38: 'amp',
     39: 'apos',
@@ -260,13 +258,13 @@ define(function (require, exports) {
     8240: 'permil',
     8249: 'lsaquo',
     8250: 'rsaquo',
-    8364: 'euro'
+    8364: 'euro',
   };
 
   // encode the provided string. function must return a string;
-  var encodeToHtmlEntities = function encodeToHtmlEntities(text) {
-    var buf = [];
-    for (var i = text.length - 1; i >= 0; i--) {
+  const encodeToHtmlEntities = function encodeToHtmlEntities(text) {
+    const buf = [];
+    for (let i = text.length - 1; i >= 0; i - 1) {
       if (HtmlEntities[text[i].charCodeAt()]) {
         buf.unshift(['&', HtmlEntities[text[i].charCodeAt()], ';'].join(''));
       } else {
@@ -276,11 +274,9 @@ define(function (require, exports) {
     return buf.join('');
   };
   // decode the provided string. function must return a string;
-  var decodeFromHtmlEntities = function decodeFromHtmlEntities(text) {
-    return text.replace(/&(#[0-9]+|[a-z]+);/g, function (match, dec) {
-      var decodedChar = Object.keys(HtmlEntities).find(function (key) {
-        return HtmlEntities[key] === dec;
-      });
+  const decodeFromHtmlEntities = function decodeFromHtmlEntities(text) {
+    return text.replace(/&(#[0-9]+|[a-z]+);/g, (match, dec) => {
+      const decodedChar = Object.keys(HtmlEntities).find((key) => HtmlEntities[key] === dec);
       return String.fromCharCode(decodedChar);
     });
   };

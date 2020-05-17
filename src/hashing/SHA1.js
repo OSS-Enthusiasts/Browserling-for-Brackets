@@ -1,5 +1,3 @@
-'use strict';
-/* eslint-disable new-cap */
 /**
  *  File: SHA1.js
  *  Author: Arthur Pons <unguestdev@gmail.com> aka unguest on github
@@ -9,10 +7,10 @@
  *
  */
 
-define(function (require, exports) {
-  var crypto = require('crypto-js');
-  var encodeToSHA1 = function encodeToSHA1(text) {
-    var hash = crypto.SHA1(text).toString();
+define((require, exports) => {
+  const crypto = require('crypto-js');
+  const encodeToSHA1 = function encodeToSHA1(text) {
+    const hash = crypto.SHA1(text).toString();
     return hash;
   };
   exports.encodeToSHA1 = encodeToSHA1;
