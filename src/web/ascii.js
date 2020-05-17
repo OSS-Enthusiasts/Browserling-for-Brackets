@@ -1,5 +1,3 @@
-
-/* eslint-disable new-cap */
 /**
  *  File: ASCII.js
  *  Author: Arthur Pons <unguestdev@gmail.com> aka unguest on github

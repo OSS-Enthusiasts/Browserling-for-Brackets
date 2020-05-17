@@ -1,4 +1,3 @@
-
 /**
  *  File: PHPSerialize.js
  *  Author: Shankhanil <shankha.rik@gmail.com>

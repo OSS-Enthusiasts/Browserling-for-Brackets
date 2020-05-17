@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-/* global $, brackets */
+/* global , brackets */
 
 /**
 *  File: morsecode.js
