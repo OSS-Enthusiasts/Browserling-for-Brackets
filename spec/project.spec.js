@@ -15,7 +15,8 @@ describe('Project Structure =>', () => {
       expect(srcFolder).toContain('main.js');
     });
     it('should contain a convertors folder', () => {
-      expect(srcFolder).toContain('convertors');
+      expect(srcFolder).toContain('hashing');
+      expect(srcFolder).toContain('web');
     });
 
     const toolCategories = ['hashing', 'web'];
@@ -23,10 +24,10 @@ describe('Project Structure =>', () => {
     toolCategories.forEach((category) => {
       describe(`${category} =>`, () => {
         // each convertor must have a unit test template in the spec folder
-        const convertorsFolder = fs.readdirSync(`${__dirname}/../src/${category}`);
+        const categoryFolder = fs.readdirSync(`${__dirname}/../src/${category}`);
 
         // filter to only the .js files
-        const jsFiles = convertorsFolder.filter((entry) => path.extname(entry).toLowerCase() === '.js');
+        const jsFiles = categoryFolder.filter((entry) => path.extname(entry).toLowerCase() === '.js');
 
         // check if each file has a unit test template counterpart in the spec folder
         jsFiles.forEach((file) => {
