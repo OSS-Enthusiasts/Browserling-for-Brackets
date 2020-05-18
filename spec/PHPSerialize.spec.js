@@ -14,32 +14,28 @@ define((require) => {
 
     it('Should handle pure strings', () => {
       const s = 'thisISaSTRING';
-      const phpSerialObject = 's:11:"thisISaSTRING"';
+      const phpSerialObject = 's:13:"thisISaSTRING"';
       expect(encodeToPHPSerial(s)).toEqual(phpSerialObject);
-      expect(encodeFloatToPHPSerial(s)).toEqual(s);
-      expect(encodeIntToPHPSerial(s)).toEqual(s);
       expect(decodeFromPHPSerial(phpSerialObject)).toEqual(s);
     });
     it('Should handle strings with numbers', () => {
       const s = 'thisISaSTRINGwith1225';
-      const phpSerialObject = 's:19:"thisISaSTRINGwith1225"';
+      const phpSerialObject = 's:21:"thisISaSTRINGwith1225"';
       expect(encodeToPHPSerial(s)).toEqual(phpSerialObject);
-      expect(encodeFloatToPHPSerial(s)).toEqual(s);
-      expect(encodeIntToPHPSerial(s)).toEqual(s);
       expect(decodeFromPHPSerial(phpSerialObject)).toEqual(s);
     });
     it('Should handle numbers', () => {
       const s = '1225';
       const phpSerialObjectString = 's:4:"1225"';
       const phpSerialObjectInt = 'i:1225';
-      const phpSerialObjectFloat = 'f:1225.0';
+      const phpSerialObjectFloat = 'd:1225.1';
       expect(encodeToPHPSerial(s)).toEqual(phpSerialObjectString);
       expect(encodeIntToPHPSerial(s)).toEqual(phpSerialObjectInt);
-      expect(encodeFloatToPHPSerial(s)).toEqual(phpSerialObjectFloat);
+      expect(encodeFloatToPHPSerial('1225.1')).toEqual(phpSerialObjectFloat);
 
       expect(decodeFromPHPSerial(phpSerialObjectString)).toEqual(s);
       expect(decodeFromPHPSerial(phpSerialObjectInt)).toEqual(s);
-      expect(decodeFromPHPSerial(phpSerialObjectFloat)).toEqual('1225.0');
+      expect(decodeFromPHPSerial(phpSerialObjectFloat)).toEqual('1225.1');
     });
   });
 });

@@ -10,8 +10,8 @@ define((require, exports) => {
     return array.reduce((chunks, element, index) => (index % chunksSize ? chunks[chunks.length - 1].push(element) : chunks.push([element])) && chunks, []).map((finalChunk) => finalChunk.join(''));
   };
 
-  const encodeToHex = function encodeToHex(text) {
-    return text.split('').map((char, index) => {
+  const encodeToHex = (text) => text.split('')
+    .map((char, index) => {
       let encoded = text.charCodeAt(index).toString(16).toUpperCase();
 
       // Fix any case that starts with 0. For example: LF => 0A
@@ -19,13 +19,11 @@ define((require, exports) => {
 
       return encoded;
     }).join('');
-  };
 
-  const decodeFromHex = function decodeFromHex(text) {
+  const decodeFromHex = (text) => {
     const array = text.trim().split('');
     const chunks = groupArrayInGroups(array, 2);
-
-    return chunks.map((charCode) => String.fromCharCode(parseInt(`0x${charCode}`, 10).toString())).join('');
+    return chunks.map((charCode) => String.fromCharCode(parseInt(`0x${charCode}`, 16).toString())).join('');
   };
 
   exports.encodeToHex = encodeToHex;
