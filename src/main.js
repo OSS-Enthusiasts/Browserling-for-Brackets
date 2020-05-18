@@ -30,19 +30,18 @@ define((require, exports, module) => {
 
   const WtaName = 'Web Tools'; // WTA = WebToolsActivation
   const WtaID = 'bob.Web_Tools';
-  const WtaState = true;
+  let WtaState = true;
 
   function wta() {
     // AirBnB standard does will throw errors when you leave console.log
     // console.log('Executing Command WTA');
-	if (!WtaState) {
-	  Menus.getContextMenu(Menus.ContextMenuIds.EDITOR_MENU).addSubMenu('NADCHIF_ECDC_MENU'); // Example with enc/dec 118
+    if (!WtaState) {
+      Menus.getContextMenu(Menus.ContextMenuIds.EDITOR_MENU).addSubMenu('NADCHIF_ECDC_MENU'); // Example with enc/dec 118
       WtaState = true;
-	} else {
+    } else {
       Menus.getContextMenu(Menus.ContextMenuIds.EDITOR_MENU).removeSubMenu('NADCHIF_ECDC_MENU'); // Example with enc/dec 118
       WtaState = false;
-	}
-
+    }
   }
 
   const HtaName = 'Hashing Tools'; // HTA = HashingToolsActivation
