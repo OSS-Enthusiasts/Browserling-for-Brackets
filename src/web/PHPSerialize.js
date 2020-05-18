@@ -32,7 +32,8 @@ define((require, exports) => {
 
   //    PHP Serializing integer
   const encodeIntToPHPSerial = function encodeIntToPHPSerial(input) {
-    if (parseInt(input, 10) === input) {
+    // eslint-disable-next-line eqeqeq
+    if (parseInt(input, 10) == input) {
       const encode = `i:${input}`;
       return encode;
     }
@@ -40,7 +41,8 @@ define((require, exports) => {
   };
   // PHP Serializing float
   const encodeFloatToPHPSerial = function encodeFloatToPHPSerial(input) {
-    if (parseFloat(input) === input) {
+    // eslint-disable-next-line eqeqeq
+    if (parseFloat(input) == input) {
       const encode = `d:${input}`;
       return encode;
     }
@@ -56,6 +58,9 @@ define((require, exports) => {
       const decode = input.split(':');
       return decode[1];
     } if (checkformat(input, 'd')) {
+      const decode = input.split(':');
+      return decode[1];
+    } if (checkformat(input, 'f')) {
       const decode = input.split(':');
       return decode[1];
     }
