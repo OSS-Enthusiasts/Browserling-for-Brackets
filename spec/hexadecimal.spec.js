@@ -22,7 +22,7 @@ define((require) => {
         const clearText = 'this is a text with spaces';
         // eslint-disable-next-line max-len
         const encodeText = '7468697320697320612074657874207769746820737061636573';
-        expect(encodeToHex(clearText)).toEqual(clearText);
+        expect(encodeToHex(clearText)).toEqual(encodeText);
         expect(decodeFromHex(encodeText)).toEqual(clearText);
       });
       it('Should encode and decode text with special characters', () => {
