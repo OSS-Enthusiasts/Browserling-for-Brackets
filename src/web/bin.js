@@ -7,33 +7,16 @@
 define((require, exports) => {
   // encode the provided string. function must return a string;
   const encodeToBin = function encodeToBin(text) {
-    let returnValue = '';
-    for (let i = 0; i < text.length; i + 1) {
-      let e = text[i].charCodeAt(0);
-      let s = '';
-      do {
-        const a = e % 2;
-        e = (e - a) / 2;
-        s = a + s;
-      } while (e !== 0);
-      while (s.length < 8) {
-        s = `0${s}`;
-      }
-      returnValue += s;
-    }
-    return returnValue;
+    const zeroPad = (num) => '00000000'.slice(String(num).length) + num;
+    return text.replace(/[\s\S]/g, (str) => {
+      const binstr = zeroPad(str.charCodeAt().toString(2));
+      return binstr;
+    });
   };
 
   // decode the provided string. function must return a string;
   const decodeFromBin = function decodeFromBin(text) {
-    let str = text.replace(/\s+/g, '');
-    str = str.match(/.{1,8}/g).join(' ');
-    const newBinary = str.split(' ');
-    const binaryCode = [];
-    for (let i = 0; i < newBinary.length; i + 1) {
-      binaryCode.push(String.fromCharCode(parseInt(newBinary[i], 2)));
-    }
-    return binaryCode.join('');
+    return text.split(' ').map((i) => String.fromCharCode(parseInt(i, 2)).toString(10)).join('');
   };
 
   // export the encoder for use in the main module
