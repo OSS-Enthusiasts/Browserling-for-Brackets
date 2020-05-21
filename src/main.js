@@ -1,14 +1,11 @@
-/* eslint-disable func-names */
-// eslint-disable-next-line max-len
-/* jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
 // eslint-disable-next-line no-unused-vars
 /* global $, brackets */
-
 
 /**
  *  File: Main.js
  *  Author: github.com/OSS-Enthisiasts
- *  Description:  This extension allows you to encode/decode selection
+ *  Description:
+ *  @todo Add description
  */
 
 // eslint-disable-next-line no-unused-vars
@@ -18,7 +15,8 @@ define((require, exports, module) => {
 
   const CommandManager = brackets.getModule('command/CommandManager');
   const Menus = brackets.getModule('command/Menus');
-  // var EditorManager  = brackets.getModule("editor/EditorManager");
+  // const EditorManager = brackets.getModule('editor/EditorManager');
+
   // var ProjectManager = brackets.getModule("project/ProjectManager");
   // var FileUtils = brackets.getModule("file/FileUtils");
   // var DocumentManager = brackets.getModule("document/DocumentManager");
@@ -27,41 +25,54 @@ define((require, exports, module) => {
 
   const menu = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
 
-
-  const WtaName = 'Web Tools'; // WTA = WebToolsActivation
-  const WtaID = 'bob.Web_Tools';
-  let WtaState = true;
-
-  function wta() {
-    // AirBnB standard does will throw errors when you leave console.log
-    // console.log('Executing Command WTA');
-    if (!WtaState) {
-      Menus.getContextMenu(Menus.ContextMenuIds.EDITOR_MENU).addSubMenu('NADCHIF_ECDC_MENU'); // Example with enc/dec 118
-      WtaState = true;
-    } else {
-      Menus.getContextMenu(Menus.ContextMenuIds.EDITOR_MENU).removeSubMenu('NADCHIF_ECDC_MENU'); // Example with enc/dec 118
-      WtaState = false;
-    }
-  }
-
-  const HtaName = 'Hashing Tools'; // HTA = HashingToolsActivation
-  const HtaID = 'bob.Hashing_Tools';
-
-  function hta() {
-    // AirBnB standard does will throw errors when you leave console.log
-    // console.log('Executing Command HTA');
-
-  }
-
-  // Registering commands into Brackets itself
-
-  CommandManager.register(WtaName, WtaID, wta);
-  CommandManager.register(HtaName, HtaID, hta);
-
   menu.addMenuDivider(); // Show a trailing line to separate our menus from Brackets' ones
 
-  // Adding menu items
+  /** Sets up everything required for each category
+  * Usage:
+  * @param id - the id of the tool category, ie 'wta',
+  * @param categoryTitle - the title, ie 'Web Tools',
+  * @param categoryTools - array of the tools paired with the title and function
+  *                        ie [{
+  *                               title: 'URI Encode',
+  *                               tool: require('./web/uri').encodeToURI,
+  *                           }];
+  */
+  const stageMenu = (id, categoryTitle, categoryTools) => {
+    let isToolEnabled = false;
+    CommandManager.register(categoryTitle, `oss.bob.${id}`, () => {
+      if (!isToolEnabled) {
+        const subMenu = Menus.getContextMenu(Menus.ContextMenuIds.EDITOR_MENU).addSubMenu(categoryTitle, `OSS_BOB_MENU_${id}`);
+        categoryTools.forEach((item, index) => {
+          CommandManager.register(item.title, `oss_bob_${id}${index}`, () => {
+            // eslint-disable-next-line no-alert
+            alert('Execute conversion function here');
+          });
+          subMenu.addMenuItem(`oss_bob_${id}${index}`, null, Menus.FIRST);
+        });
+        isToolEnabled = true;
+        CommandManager.get(`oss.bob.${id}`).setChecked(true);
+      } else {
+        Menus.getContextMenu(Menus.ContextMenuIds.EDITOR_MENU).removeSubMenu(`OSS_BOB_MENU_${id}`); // Example with enc/dec 118
+        CommandManager.get(`oss.bob.${id}`).setChecked(false);
+        isToolEnabled = false;
+      }
+    });
 
-  menu.addMenuItem(WtaID, WtaName, Menus.LAST);
-  menu.addMenuItem(HtaID, HtaName, Menus.LAST);
+    // Adding menu items
+    menu.addMenuItem(`oss.bob.${id}`, categoryTitle, Menus.LAST);
+  };
+
+  // Set up category menus here using this format
+
+  const WEB_TOOLS = [{
+    title: 'URI Encode',
+    tool: require('./web/uri').encodeToURI,
+  }];
+  const HASH_TOOLS = [{
+    title: 'Calc MD5',
+    tool: require('./hashing/MD5').encodeToURI,
+  }];
+
+  stageMenu('web', 'Web Tools', WEB_TOOLS);
+  stageMenu('hash', 'Hashing Tools', HASH_TOOLS);
 });

@@ -6,7 +6,7 @@
 require('amd-loader');
 // for tests that need RequireJS
 define((require) => {
-  describe('src/MD5.js =>', () => {
+  describe('src/PHPSerialize.js =>', () => {
     const { encodeToPHPSerial } = require('../src/web/PHPSerialize');
     const { encodeIntToPHPSerial } = require('../src/web/PHPSerialize');
     const { encodeFloatToPHPSerial } = require('../src/web/PHPSerialize');
