@@ -10,7 +10,7 @@ define((require, exports) => {
   const shuffle = function shuffle(input) {
     let chars = input.split(""), strlen = chars.length;
 
-    for(var i = strlen - 1; i > 0; i--) {
+    for(var i = strlen - 1; i > 0; i =i-1) {
         var j = Math.floor(Math.random() * (i + 1));
         var tmp = chars[i];
         chars[i] = chars[j];
