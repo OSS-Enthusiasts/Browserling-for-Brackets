@@ -5,18 +5,18 @@
  */
 
 define((require, exports) => {
-
   //    PHP Serializing string
   const shuffle = function shuffle(input) {
-    let chars = input.split(""), strlen = chars.length;
+    const chars = input.split('');
+    const strlen = chars.length;
 
-    for(var i = strlen - 1; i > 0; i =i-1) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var tmp = chars[i];
-        chars[i] = chars[j];
-        chars[j] = tmp;
+    for (let i = strlen - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const tmp = chars[i];
+      chars[i] = chars[j];
+      chars[j] = tmp;
     }
-    return chars.join("");
+    return chars.join('');
   };
   exports.shuffle = shuffle;
 });
