@@ -8,7 +8,7 @@ One-stop Developers Tools collection for Brackets. Web, hashing, maths, random g
 - [x] Web tools
 - [x] Hashing tools
 - [ ] Maths tools
-- [ ] Random generators
+- [x] Random generators
 
 ## Editors Availability
 
