@@ -8,12 +8,12 @@
 define((require, exports) => {
   const encodeToASCII = function encodeToASCII(text) {
     const asciiArray = [];
-    const txt = text.trim().split('');
-    for (let i = 0; i < txt.length; i + 1) {
+    const txt = text.trim();
+    for (let i = 0; i < txt.length; i += 1) {
       try {
-        asciiArray.push(i.charCodeAt(0));
+        asciiArray.push(txt.charCodeAt(i));
       } catch (e) {
-        // console.log(e);
+        //        console.log(e);
       }
     }
 
