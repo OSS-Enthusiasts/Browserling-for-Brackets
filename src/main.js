@@ -86,6 +86,12 @@ define((require, exports, module) => {
   // Set up category menus here using this format
 
   const WEB_TOOLS = [{
+    encoderTitle: 'String to ASCII',
+    encodeTool: require('./web/ascii').encodeToASCII,
+    decoderTitle: 'ASCII to String',
+    decodeTool: require('./web/ascii').decodeFromASCII,
+  },
+  {
     encoderTitle: 'String to URI',
     encodeTool: require('./web/uri').encodeToURI,
     decoderTitle: 'URI to String',
@@ -133,7 +139,11 @@ define((require, exports, module) => {
     encoderTitle: 'Hash using SHA512',
     encodeTool: require('./hashing/SHA512').encodeToSHA512,
   }];
-
+  const GENERATOR_TOOLS = [{
+    encoderTitle: 'Shuffle text',
+    encodeTool: require('./generators/shuffle').shuffle,
+  }];
   stageMenu('web', 'Web Tools', WEB_TOOLS);
   stageMenu('hash', 'Hashing Tools', HASH_TOOLS);
+  stageMenu('gen', 'Random generator Tools', GENERATOR_TOOLS);
 });
