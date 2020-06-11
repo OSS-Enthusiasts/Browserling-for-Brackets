@@ -1,5 +1,5 @@
 /**
- *  File: PHPSerialize.js
+ *  File: shuffle.js
  *  Author: Shankhanil <shankha.rik@gmail.com>
  *  Description:  Shuffles a string
  */
