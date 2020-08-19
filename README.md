@@ -12,7 +12,7 @@ One-stop Developers Tools collection for Brackets. Web, hashing, maths, random g
 
 ## Editors Availability
 
-- [ ] Brackets (in development)
+- [x] Brackets
 - [ ] VSCode
 - [ ] Atom
 - [ ] SublimeText 3
