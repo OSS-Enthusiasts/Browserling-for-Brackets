@@ -1,5 +1,5 @@
 /**
- *  File: hexadecimal.spec.js
+ *  File: shuffle.spec.js
  *  Author(s):
  */
 
